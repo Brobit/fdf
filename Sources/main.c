@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:33:09 by almarico          #+#    #+#             */
-/*   Updated: 2024/05/28 22:27:02 by almarico         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:44:09 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 500, 500, "Pilou");
+	mlx_win = mlx_new_window(mlx, 1500, 800, "Pilou");
 	mlx_loop(mlx);
 	(void)mlx_win;
 	return (0);

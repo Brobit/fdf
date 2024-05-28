@@ -1,6 +1,6 @@
 NAME = fdf
 
-CC = gcc
+CC = cc
 
 FLAGS = -g -Wall -Wextra -Werror
 

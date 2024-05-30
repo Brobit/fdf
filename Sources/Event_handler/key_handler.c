@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   key_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 18:33:09 by almarico          #+#    #+#             */
-/*   Updated: 2024/05/30 09:53:44 by almarico         ###   ########.fr       */
+/*   Created: 2024/05/30 18:12:03 by almarico          #+#    #+#             */
+/*   Updated: 2024/05/30 18:52:27 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/fdf.h"
+#include "../../Includes/fdf.h"
 
-int	main(int argc, char **argv)
+int	key_handler(int keycode, t_window *mlx)
 {
-	t_window	mlx;
-
-	(void)argc;
-	(void)argv;
-	init_display(&mlx);
-	display(&mlx);
+	printf("%d\n", keycode);
+	if (keycode == XK_Escape)
+	{
+		mlx_destroy_window(mlx->init_ptr, mlx->window);
+		exit(0);
+	}
 	return (0);
 }

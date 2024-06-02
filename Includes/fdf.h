@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/05/30 18:23:03 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/02 13:59:03 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	display(t_window *mlx);
 /* event handling */
 void	event_handler(t_window *mlx);
 int		key_handler(int keycode, t_window *mlx);
+int		closes(t_window *mlx);
 
 #endif

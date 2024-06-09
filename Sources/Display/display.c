@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 09:45:42 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/03 13:46:37 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/09 10:13:39 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,21 @@ int	init_display(t_window *mlx)
 	return (SUCCESS);
 }
 
-int	display(t_window *mlx, t_img_info *img)
+int	display(t_window *mlx)
 {
-	image_handler(mlx, img);
-	mlx_put_image_to_window(mlx->init_ptr, mlx->window, img->img_ptr, 0, 0);
-	event_handler(mlx, img);
+	int	x;
+	int	y;
+
+	x = -1;
+	image_handler(mlx);
+	while (++x < mlx->width)
+	{
+		y = -1;
+		while (++y < mlx->height)
+			fill_image_with_pixel(mlx->img, x, y, mlx->img.color);
+	}
+	mlx_put_image_to_window(mlx->init_ptr, mlx->window, mlx->img.img_ptr, 0, 0);
+	event_handler(mlx);
 	mlx_loop(mlx->init_ptr);
 	return (SUCCESS);
 }

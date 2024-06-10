@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/09 10:13:29 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/10 13:29:03 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
+/* general & error define */
 # define SUCCESS					0
 # define FAIL						1
+# define STDIN						0
+# define STDOUT						1	
+# define STDERR						2
+# define ERR_ARGC					"./fdf <enter map path>\n"
+# define ERR_FILE_FORMAT			"The map you want to open doesn't end with .fdf !\n"
+# define ERR_STRUC_OR_DISPLAY_FAIL	"the initialisation of the display failed !\n"
 
 /* mlx event define */
 # define ON_KEYDOWN					2
@@ -33,6 +40,12 @@
 # define ON_EXPOSE					12
 # define ON_DESTROY					17
 
+/* color define */
+# define COLOR						0x00000000
+# define COLOR_RED					0x00FF0000
+# define COLOR_GREEN				0x0000FF00
+# define COLOR_BLUE					0x000000FF
+
 typedef struct s_img_info
 {
 	void			*img_ptr;
@@ -40,7 +53,6 @@ typedef struct s_img_info
 	int				bits_per_pixel;
 	int				size_line;
 	int				endian;
-	int				color;
 }				t_img_info;
 
 typedef struct s_window
@@ -65,8 +77,15 @@ int		closes(t_window *mlx);
 
 /* image handling */
 void	image_handler(t_window *mlx);
-void	fill_image_with_pixel(t_img_info img, int pos_x, int pos_y, int color);
+void	fill_image_with_pixel(t_window *mlx);
+void	set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
 
+/* window handling */
 int		window_handler(t_window *mlx);
+
+/* utils */
+void	write_message(const char *msg);
+int		ft_strlen(const char *str);
+int		file_checker(char *str);
 
 #endif

@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 18:33:09 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/10 13:10:53 by almarico         ###   ########.fr       */
+/*   Created: 2024/06/09 10:54:12 by almarico          #+#    #+#             */
+/*   Updated: 2024/06/10 17:08:18 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/fdf.h"
+#include "../../Includes/fdf.h"
 
-int	main(int argc, char **argv)
+int	ft_strlen(const char *str)
 {
-	t_window	mlx;
+	int	i;
 
-	if (argc != 2)
-		return (write_message(ERR_ARGC), FAIL);
-	if (file_checker(argv[1]) == FAIL)
-		return (write_message(ERR_FILE_FORMAT), FAIL);
-	if (init_display(&mlx) == FAIL)
-		return (write_message(ERR_STRUC_OR_DISPLAY_FAIL), FAIL);
-	display(&mlx);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	file_checker(char *str)
+{
+	int	i;
+
+	i = ft_strlen(str);
+	if (i < 5)
+		return (FAIL);
+	if ((str[i - 4] == '.') && (str[i - 3] == 'f') && (str[i - 2] == 'd') && (str[i - 1] == 'f'))
+		return (SUCCESS);
+	else
+		return (FAIL);
 	return (SUCCESS);
+}
+
+void	write_message(const char *msg)
+{
+	write(STDERR, msg, ft_strlen(msg));
 }

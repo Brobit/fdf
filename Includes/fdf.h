@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/10 13:29:03 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/11 11:01:56 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "../minilibx-linux/mlx.h"
 # include "../minilibx-linux/mlx_int.h"
+# include "../libft-complete/libft/libft.h"
+# include "../libft-complete/printf/ft_printf.h"
+# include "../libft-complete/get_next_line/gnl.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
@@ -85,7 +88,7 @@ int		window_handler(t_window *mlx);
 
 /* utils */
 void	write_message(const char *msg);
-int		ft_strlen(const char *str);
+// int		ft_strlen(const char *str);
 int		file_checker(char *str);
 
 #endif

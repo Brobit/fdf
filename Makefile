@@ -10,6 +10,12 @@ MLX_LIB = ${MLX_DIR}/libmlx.a
 
 MLX_FLAG = -lm -lmlx -lX11 -lXext
 
+LIBFT_DIR = ./libft-complete
+
+LIBFT_LIB = ${LIBFT_DIR}/libft_complete.a
+
+LIBFT_FLAG = -lft_complete
+
 INCLUDES = -I ./Includes/
 
 SOURCES = ./Sources/main.c\
@@ -25,21 +31,26 @@ OBJS = ${SOURCES:.c=.o}
 
 all : ${NAME}
 
-${NAME} : ${OBJS} ${MLX_LIB}
-	${CC} ${FLAGS} ${OBJS} -L${MLX_DIR} -o $@ ${MLX_FLAG}
+${NAME} : ${OBJS} ${MLX_LIB} ${LIBFT_LIB}
+	${CC} ${FLAGS} ${OBJS} -L${MLX_DIR} -L${LIBFT_DIR} -o $@ ${MLX_FLAG} ${LIBFT_FLAG}
 
 ${MLX_LIB} :
 	${MAKE} -C ${MLX_DIR}
+
+${LIBFT_LIB} :
+	${MAKE} -C ${LIBFT_DIR}
 
 %.o : %.c
 	${CC} ${FLAGS} ${INCLUDES} -c $< -o $@
 
 clean : 
 	${MAKE} clean -C ${MLX_DIR}
+	${MAKE} clean -C ${LIBFT_DIR}
 	${RM} ${OBJS}
 
 fclean : clean
 	${MAKE} clean -C ${MLX_DIR}
+	${MAKE} fclean -C ${LIBFT_DIR}
 	${RM} ${NAME}
 
 re : fclean all

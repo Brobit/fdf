@@ -6,22 +6,22 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:54:12 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/10 17:08:18 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/11 11:01:19 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/fdf.h"
 
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
+// int	ft_strlen(const char *str)
+// {
+// 	int	i;
+//
+// 	i = 0;
+// 	while (str[i])
+// 		i++;
+// 	return (i);
+// }
+//
 int	file_checker(char *str)
 {
 	int	i;

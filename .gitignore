@@ -2,3 +2,4 @@ Docs/
 minilibx-linux/
 fdf
 *.o
+*.a

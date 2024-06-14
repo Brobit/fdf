@@ -25,7 +25,9 @@ SOURCES = ./Sources/main.c\
 		  ./Sources/Event_handler/mouse_handler.c\
 		  ./Sources/Event_handler/window_handler.c\
 		  ./Sources/Image_handler/image_handler.c\
-		  ./Sources/Utils/utils.c
+		  ./Sources/Utils/utils.c\
+		  ./Sources/Utils/file_opener.c\
+		  ./Sources/Utils/transform_to_float.c
 
 OBJS = ${SOURCES:.c=.o}
 

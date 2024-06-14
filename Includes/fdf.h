@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/11 11:01:56 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:49:25 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+# include <fcntl.h>
+# include <sys/types.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
 
@@ -33,6 +35,8 @@
 # define ERR_ARGC					"./fdf <enter map path>\n"
 # define ERR_FILE_FORMAT			"The map you want to open doesn't end with .fdf !\n"
 # define ERR_STRUC_OR_DISPLAY_FAIL	"the initialisation of the display failed !\n"
+# define ERR_FILE_OPENING			"the map opening doesn't succeed !\n"
+# define ERR_TRANSFORM_TO_FLOAT		"An error occured when transforming ascii to float\n"
 
 /* mlx event define */
 # define ON_KEYDOWN					2
@@ -67,6 +71,14 @@ typedef struct s_window
 	t_img_info		img;
 }				t_window;
 
+typedef struct s_map_info
+{
+	char			**map_info;
+	float			**map;
+	size_t			line_nb;
+	size_t			line_size;
+}				t_map_info;
+
 /* init display */
 int		init_display(t_window *mlx);
 
@@ -86,9 +98,12 @@ void	set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
 /* window handling */
 int		window_handler(t_window *mlx);
 
+/* file opening */
+int		file_opener(const char *file, t_map_info *map);
+
 /* utils */
 void	write_message(const char *msg);
-// int		ft_strlen(const char *str);
+void	free_char(t_map_info *map);
 int		file_checker(char *str);
 
 #endif

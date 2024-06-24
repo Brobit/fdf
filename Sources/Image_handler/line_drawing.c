@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   line_drawing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 20:49:24 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/18 13:15:10 by almarico         ###   ########.fr       */
+/*   Created: 2024/06/24 10:28:15 by almarico          #+#    #+#             */
+/*   Updated: 2024/06/24 10:31:40 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../Includes/fdf.h"
 
-char	*ft_strdup(const char *s)
+void	draw_line(t_window *mlx, t_map_info *map)
 {
-	char	*dest;
-	int		i;
-
-	i = -1;
-	dest = (char *)malloc(ft_strlen(s) * sizeof(char) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[++i])
-		dest[i] = s[i];
-	dest[i] = '\0';
-	free((void *)s);
-	return (dest);
+	(void)mlx;
+	(void)map;
 }

@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:27:38 by almarico          #+#    #+#             */
-/*   Updated: 2024/02/14 12:07:26 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:36:01 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,16 @@ char			*ft_strcat(char *dest, const char *src);
 size_t			ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
+float			ft_atof(const char *string);
 int				ft_lstsize(t_list *lst);
 int				ft_atoi(const char *string);
+int				ft_atoi_base(char *str, char *base);
 int				ft_isalnum(int charactere);
 int				ft_isalpha(int charactere);
 int				ft_isascii(int c);
 int				ft_isdigit(int charactere);
 int				ft_isprint(int charactere);
+int				ft_isspace(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_strcmp(char *s1, char *s2);
@@ -84,5 +87,7 @@ int				ft_strncmp(const char *s1, const char *s2, unsigned int n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_size(long long int n);
 int				ft_count_word(char const *str, char c);
+int				ft_count_word_with_string(char const *str,
+					char *string_separator);
 
 #endif // !LIBFT_H

@@ -6,20 +6,24 @@
 #    By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 15:09:47 by almarico          #+#    #+#              #
-#    Updated: 2024/02/13 11:38:17 by almarico         ###   ########.fr        #
+#    Updated: 2024/06/19 14:36:17 by almarico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ./ft_atoi.c\
+SRCS =	./ft_atof.c\
+	./ft_atoi.c\
+	./ft_atoi_base.c\
 	./ft_atoll.c\
 	./ft_bzero.c\
 	./ft_calloc.c\
 	./ft_count_word.c\
+	./ft_count_word_with_string.c\
 	./ft_isalnum.c\
 	./ft_isalpha.c\
 	./ft_isascii.c\
 	./ft_isdigit.c\
 	./ft_isprint.c\
+	./ft_isspace.c\
 	./ft_itoa.c\
 	./ft_memchr.c\
 	./ft_memcmp.c\

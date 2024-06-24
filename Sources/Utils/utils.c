@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:54:12 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/13 17:43:33 by almarico         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:38:31 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	file_checker(char *str)
 	return (SUCCESS);
 }
 
-void	free_char(t_map_info *map)
+void	free_map_info(t_map_info *map)
 {
 	int	index;
 
@@ -36,7 +36,29 @@ void	free_char(t_map_info *map)
 	free(map->map_info);
 }
 
+void	free_map(t_map_info *map)
+{
+	int	index;
+
+	index = -1;
+	while (++index < map->line_nb -1)
+		free(map->map[index]);
+	free(map->map);
+}
+
 void	write_message(const char *msg)
 {
 	write(STDERR, msg, ft_strlen(msg));
+}
+
+int	get_color_value(t_map_info *map)
+{
+	while (**map->map_info >= '0' && **map->map_info <= '9')
+		(*map->map_info)++;
+	if (**map->map_info == ',' || **map->map_info == '.')
+	{
+		(*map->map_info += 3);
+		return (ft_atoi_base(*map->map_info, HEXADECIMAL_BASE));
+	}
+	return (DEFAULT_COLOR_VALUE);
 }

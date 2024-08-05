@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/24 10:29:35 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:44:40 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,24 @@
 # define COLOR_BLUE					0x0000FF
 # define COLOR_GREY					0x999999
 # define DEFAULT_COLOR_VALUE		0xF000FF
+
+# define COLOR_OCTANT_0				0xFFFFFF
+# define COLOR_OCTANT_1				0xFFFF00
+# define COLOR_OCTANT_2				0x9933FF
+# define COLOR_OCTANT_3				0xFF0000
+# define COLOR_OCTANT_4				0x66CCFF
+# define COLOR_OCTANT_5				0x00FF33
+# define COLOR_OCTANT_6				0x0066FF
+# define COLOR_OCTANT_7				0x990033
+# define COLOR_OCTANT_8				0x99CCFF
+
+/* angle define in degre*/
+# define ALPHA						35	// alpha is used to rotate verticaly
+# define BETA						45	// beta is udes to rotate horizontally
+
+/* sign and absolute value define */
+# define ABS(_x)					((_x) >= 0 ? (_x) : -(_x))
+# define SGN(_x)					((_x) < 0 ? -1 : ((_x) > 0 ? 1 : 0))
 
 typedef struct s_img_info
 {
@@ -135,11 +153,13 @@ void				free_map_info(t_map_info *map);
 void				free_map(t_map_info *map);
 int					get_color_value(t_map_info *map);
 int					file_checker(char *str);
+int					check_coordonate(t_map *start, t_inner_interval *value_of);
 
 /* color writing */
 void				set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
+// void				draw_point(t_window *mlx, t_map_info *map);
 void				draw_point(t_window *mlx, t_map_info *map);
-void				draw_line(t_window *mlx, t_map_info *map);
+void				draw_line(t_window *mlx, t_map_info *map, t_inner_interval *value_of);
 void				fill_border_of_image(t_window *mlx);
 t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
 

@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:18:54 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/24 10:31:14 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:55:30 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	fill_image_with_pixel(t_window *mlx, t_map_info *map)
 {
 	fill_border_of_image(mlx);
 	draw_point(mlx, map);
-	draw_line(mlx, map);
 }
 
 void	image_handler(t_window *mlx)

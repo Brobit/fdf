@@ -1,5 +1,6 @@
 to do :
 
-- [ ] do a function to calculate the isometric projection
-- [ ] apply the isometric calcul to the point coordonate
-- [ ] draw lines between points
+- [x] do a function to calculate the isometric projection
+- [x] apply the isometric calcul to the point coordonate
+- [x] draw lines between points
+- [ ] segfault on elem-fract.fdf

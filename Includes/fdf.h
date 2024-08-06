@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/05 14:44:40 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:47:02 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@
 
 /* angle define in degre*/
 # define ALPHA						35	// alpha is used to rotate verticaly
-# define BETA						45	// beta is udes to rotate horizontally
+# define BETA						180	// beta is udes to rotate horizontally
 
 /* sign and absolute value define */
 # define ABS(_x)					((_x) >= 0 ? (_x) : -(_x))
@@ -157,10 +157,23 @@ int					check_coordonate(t_map *start, t_inner_interval *value_of);
 
 /* color writing */
 void				set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
-// void				draw_point(t_window *mlx, t_map_info *map);
 void				draw_point(t_window *mlx, t_map_info *map);
 void				draw_line(t_window *mlx, t_map_info *map, t_inner_interval *value_of);
 void				fill_border_of_image(t_window *mlx);
 t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
+
+/* line utils */
+void				draw_right_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
+void				draw_left_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
+void				draw_vertical(int start_x, int start_y, int end_y, t_window *mlx, char sign, int color);
+void				draw_horizontal(int start_x, int start_y, int end_x, t_window *mlx, char sign, int color);
+void				draw_octant_zero(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
+void				draw_octant_one(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
+void				draw_octant_two(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
+void				draw_octant_three(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
+void				draw_octant_four(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
+void				draw_octant_five(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
+void				draw_octant_six(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
+void				draw_octant_seven(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
 
 #endif

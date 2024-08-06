@@ -30,7 +30,10 @@ SOURCES = ./Sources/main.c\
 		  ./Sources/Image_handler/line_drawing.c\
 		  ./Sources/Utils/utils.c\
 		  ./Sources/Utils/file_opener.c\
-		  ./Sources/Utils/transform_to_float.c
+		  ./Sources/Utils/transform_to_float.c\
+		  ./Sources/Utils/draw_other_line.c\
+		  ./Sources/Utils/draw_octant_zero_to_three.c\
+		  ./Sources/Utils/draw_octant_four_to_seven.c
 
 OBJS = ${SOURCES:.c=.o}
 

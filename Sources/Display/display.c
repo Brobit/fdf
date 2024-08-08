@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 09:45:42 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/05 15:03:52 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:17:30 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	init_display(t_window *mlx)
 {
-	mlx->width = 1280;
-	mlx->height = 720;
-	// mlx->width = 1900;
-	// mlx->height = 1080;
+	// mlx->width = 1280;
+	// mlx->height = 720;
+	mlx->width = 1900;
+	mlx->height = 1080;
 	mlx->init_ptr = mlx_init();
 	if (!mlx->init_ptr)
 		return (FAIL);

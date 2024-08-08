@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/06 10:47:02 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:17:24 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@
 # define COLOR_OCTANT_8				0x99CCFF
 
 /* angle define in degre*/
-# define ALPHA						35	// alpha is used to rotate verticaly
+# define ALPHA						180	// alpha is used to rotate verticaly
 # define BETA						180	// beta is udes to rotate horizontally
 
 /* sign and absolute value define */
@@ -153,14 +153,17 @@ void				free_map_info(t_map_info *map);
 void				free_map(t_map_info *map);
 int					get_color_value(t_map_info *map);
 int					file_checker(char *str);
-int					check_coordonate(t_map *start, t_inner_interval *value_of);
+int					check_coordonate_to_window(t_map *start);
+// int					check_coordonate_to_window(t_map *start, t_inner_interval *value_of);
 
 /* color writing */
 void				set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
 void				draw_point(t_window *mlx, t_map_info *map);
-void				draw_line(t_window *mlx, t_map_info *map, t_inner_interval *value_of);
+// void				draw_line(t_window *mlx, t_map_info *map, t_inner_interval *value_of);
+void				draw_line(t_window *mlx, t_map_info *map);
 void				fill_border_of_image(t_window *mlx);
 t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
+void				refresh_image(int *x, int *y, double *coef, t_window *mlx);
 
 /* line utils */
 void				draw_right_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);

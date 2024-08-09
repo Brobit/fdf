@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/08 16:17:24 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/09 10:16:32 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ typedef struct s_window
 	void			*window;
 	int				width;
 	int				height;
+	int				center_width;
+	int				center_height;
 	t_img_info		img;
 }				t_window;
 

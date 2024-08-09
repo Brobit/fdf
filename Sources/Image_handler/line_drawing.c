@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:11:07 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/08 16:20:23 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/09 10:19:41 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ int	check_coordonate_to_window(t_map *start)
 		printf("coordonate do not exist\n");
 		return (FAIL);
 	}
-	// else if (start->pos_x > 0 && start->pos_x < 1280
-	// 	&& start->pos_y > 0 && start->pos_y < 720)
-	// 	return (SUCCESS);
-	else if (start->pos_x > 0 && start->pos_x < 1900
-		&& start->pos_y > 0 && start->pos_y < 1080)
+	else if (start->pos_x > 0 && start->pos_x < 1280
+		&& start->pos_y > 0 && start->pos_y < 720)
 		return (SUCCESS);
+	// else if (start->pos_x > 0 && start->pos_x < 1900
+	// 	&& start->pos_y > 0 && start->pos_y < 1080)
+	// 	return (SUCCESS);
 	return (FAIL);
 }
 

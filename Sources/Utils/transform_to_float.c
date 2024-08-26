@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:53:00 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/20 11:15:22 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/21 10:15:03 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	print_map(t_map_info *map)
 		j = 0;
 		while (j < map->line_size)
 		{
-			printf(" %d ", map->map[i][j].value);
+			// printf(" %d ", map->map[i][j].value);
 			j++;
 		}
-		printf("\n");
+		// printf("\n");
 		i++;
 	}
 }

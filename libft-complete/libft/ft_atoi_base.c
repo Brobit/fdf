@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:32:55 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/19 14:34:26 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:56:59 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,25 @@ static unsigned int	ft_cstr(char c, char *base)
 	return (j);
 }
 
-int	ft_atoi_base(char *str, char *base)
+static int	check_res(long number)
 {
 	int	res;
-	int	neg;
-	int	i;
+
+	res = 0;
+	if (number < INT_MIN)
+		res = INT_MIN;
+	else if (number > INT_MAX)
+		res = INT_MAX;
+	else
+		res = number;
+	return (res);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int		res;
+	long	neg;
+	int		i;
 
 	i = 0;
 	res = 0;
@@ -85,5 +99,5 @@ int	ft_atoi_base(char *str, char *base)
 		res += ft_cstr(str[i], base);
 		i++;
 	}
-	return (res * neg);
+	return (check_res(res * neg));
 }

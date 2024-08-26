@@ -3,13 +3,28 @@ to do :
 - [x] do a function to calculate the isometric projection
 - [x] apply the isometric calcul to the point coordonate
 - [x] draw lines between points
-- [ ] segfault on elem-fract.fdf
-
-in draw_point, make a struct that only contain the 2 vector that going to be draw,
-and then , don't wait the end of the loop to draw a line, draw the line just after
-the points calculation, and then draw the two points
-
-the error actually is when a point is out of the map, when i reduce the coef,
-it keep the wrong value, so i need to an another structure to do the calculation
-without modify the initial value, and to calculate only two points and draw the line
-allow to do it without a structure allocation
+- [x] segfault on elem-fract.fdf
+- [x] print the bottom line and the right line
+- [x] reduce the coef by 2 on the y
+- [ ] check the render with a good fdf :
+    - [x] 100-6.fdf
+    - [?] 10-2.fdf
+    - [x] 10-70.fdf
+    - [x] 20-60.fdf
+    - [x] 42.fdf            a faire une rotation ,voir screenshot
+    - [x] 50-4.fdf
+    - [x] basictest.fdf     a faire une rotation, voir screenshot
+    - [x] elem2.fdf         a faire une rotation, voir screenshot
+    - [x] elem-col.fdf      a faire une rotation, voir screenshot
+    - [x] elem.fdf          a faire une rotatiom, voir screenshot
+    - [x] elem-fract.fdf    a faire une rotation, voir screenshot, et le milieu est pas rempli alors que le fdf_linux oui
+    - [x] julia.fdf         a faire une rotation, voir screenshot
+    - [x] mars.fdf          a faire une rotation, voir screenshot
+    - [?] pentenegpos.fdf   peut-etre juste une rotation a faire, voir screenshot
+    - [x] plat.fdf          a faire une rotation, voir screenshot
+    - [x] pnp_plat.fdf      a faire une rotation, voir screenshot
+    - [?] pylone.fdf        parait bon, a la rigueur faire une rotation, ne peut pas etre executer avec le programme de demo
+    - [?] pyra.fdf          a voir si en faisaint une rotation ca correspond
+    - [x] pyramide.fdf      a faire une rotation, voir screenshot
+    - [x] t1.fdf            a faire une rotation, voir screenshot
+    - [x] t2.fdf            a faire une rotation, voir screenshot

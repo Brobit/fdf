@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/09 10:16:32 by almarico         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:51:02 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define STDIN						0
 # define STDOUT						1	
 # define STDERR						2
+# define INT_MIN					-2147483648
+# define INT_MAX					2147483647
 # define HEXADECIMAL_BASE			"0123456789ABCDEF"
 # define ERR_ARGC					"./fdf <enter map path>\n"
 # define ERR_FILE_FORMAT			"The map you want to open doesn't end with .fdf !\n"
@@ -70,10 +72,6 @@
 /* angle define in degre*/
 # define ALPHA						180	// alpha is used to rotate verticaly
 # define BETA						180	// beta is udes to rotate horizontally
-
-/* sign and absolute value define */
-# define ABS(_x)					((_x) >= 0 ? (_x) : -(_x))
-# define SGN(_x)					((_x) < 0 ? -1 : ((_x) > 0 ? 1 : 0))
 
 typedef struct s_img_info
 {
@@ -127,6 +125,16 @@ typedef struct s_inner_interval
 	int				beggining_vertical;
 }				t_inner_interval;
 
+typedef struct s_point
+{
+	int				x_start;
+	int				y_start;
+	int				z_start;
+	int				x_end;
+	int				y_end;
+	int				z_end;
+}				t_point;
+
 /* init display */
 int					init_display(t_window *mlx);
 
@@ -155,19 +163,18 @@ void				free_map_info(t_map_info *map);
 void				free_map(t_map_info *map);
 int					get_color_value(t_map_info *map);
 int					file_checker(char *str);
-int					check_coordonate_to_window(t_map *start);
-// int					check_coordonate_to_window(t_map *start, t_inner_interval *value_of);
+int					check_coordonate_to_window(t_point pixel, t_window *mlx);
 
 /* color writing */
 void				set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
 void				draw_point(t_window *mlx, t_map_info *map);
-// void				draw_line(t_window *mlx, t_map_info *map, t_inner_interval *value_of);
 void				draw_line(t_window *mlx, t_map_info *map);
 void				fill_border_of_image(t_window *mlx);
-t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
 void				refresh_image(int *x, int *y, double *coef, t_window *mlx);
+t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
 
 /* line utils */
+void				draw_one_line(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
 void				draw_right_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
 void				draw_left_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
 void				draw_vertical(int start_x, int start_y, int end_y, t_window *mlx, char sign, int color);

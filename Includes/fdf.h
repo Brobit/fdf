@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 10:22:23 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:50:16 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,13 @@
 # define INT_MAX					2147483647
 # define HEXADECIMAL_BASE			"0123456789ABCDEF"
 # define ERR_ARGC					"./fdf <enter map path>\n"
-# define ERR_FILE_FORMAT			"The map you want to open doesn't end with .fdf !\n"
-# define ERR_STRUC_OR_DISPLAY_FAIL	"the initialisation of the display failed !\n"
+# define ERR_FILE_FORMAT			"The map you want to open \
+doesn't end with .fdf !\n"
+# define ERR_STRUC_OR_DISPLAY_FAIL	"the initialisation of \
+the display failed !\n"
 # define ERR_FILE_OPENING			"the map opening doesn't succeed !\n"
-# define ERR_TRANSFORM_TO_INT		"An error occured when transforming ascii to int\n"
+# define ERR_TRANSFORM_TO_INT		"An error occured when \
+transforming ascii to int\n"
 # define ERR_MALLOC					"An error occured during the malloc\n"
 
 /* mlx event define */
@@ -127,7 +130,7 @@ typedef struct s_map_info
 {
 	char			**map_info;
 	t_map			**map;
-	char		*name;
+	char			*name;
 	int				line_nb;
 	int				line_size;
 	double			coef;
@@ -190,7 +193,8 @@ int					file_checker(char *str);
 int					check_coordonate_to_window(t_point pixel, t_window *mlx);
 
 /* color writing */
-void				set_pixel_color(t_img_info img, int pos_x, int pos_y, int color);
+void				set_pixel_color(t_img_info img, int pos_x, int pos_y, \
+					int color);
 void				draw_point(t_window *mlx, t_map_info *map);
 void				draw_line(t_window *mlx, t_map_info *map);
 void				fill_border_of_image(t_window *mlx);
@@ -198,18 +202,28 @@ void				refresh_image(int *x, int *y, double *coef, t_window *mlx);
 t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
 
 /* line utils */
-void				draw_one_line(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
-void				draw_right_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
-void				draw_left_side(int start_x, int start_y, int end_x, int end_y, t_window *mlx);
-void				draw_vertical(int start_x, int start_y, int end_y, t_window *mlx, char sign, int color);
-void				draw_horizontal(int start_x, int start_y, int end_x, t_window *mlx, char sign, int color);
-void				draw_octant_zero(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
-void				draw_octant_one(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
-void				draw_octant_two(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
-void				draw_octant_three(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
-void				draw_octant_four(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
-void				draw_octant_five(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
-void				draw_octant_six(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx);
-void				draw_octant_seven(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx);
+void				draw_one_line(t_point *pixel, t_window *mlx);
+void				draw_right_side(t_point *pixel, t_window *mlx);
+void				draw_left_side(t_point *pixel, t_window *mlx);
+void				draw_vertical(t_point *pixel, t_window *mlx, char sign, \
+					int color);
+void				draw_horizontal(t_point *pixel, t_window *mlx, char sign, \
+					int color);
+void				draw_octant_zero(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_one(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_two(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_three(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_four(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_five(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_six(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
+void				draw_octant_seven(int x_distance, int y_distance, \
+					t_point *pixel, t_window *mlx);
 
 #endif

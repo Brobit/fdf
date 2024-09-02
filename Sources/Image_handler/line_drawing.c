@@ -6,32 +6,32 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:11:07 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 11:14:12 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:09:38 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/fdf.h"
 
-void	draw_one_line(int start_x, int start_y, int end_x, int end_y, t_window *mlx)
+void	draw_one_line(t_point *pixel, t_window *mlx)
 {
 	int	x_distance;
 	int	y_distance;
 
-	x_distance = end_x - start_x;
-	y_distance = end_y - start_y;
+	x_distance = pixel->x_end - pixel->x_start;
+	y_distance = pixel->y_end - pixel->y_start;
 	if (x_distance == 0)
 	{
 		if (y_distance > 0)
-			draw_vertical(start_x, start_y, end_y, mlx, '+', COLOR_GREY);
+			draw_vertical(pixel, mlx, '+', COLOR_GREY);
 		else if (y_distance < 0)
-			draw_vertical(start_x, start_y, end_y, mlx, '-', COLOR_GREEN);
+			draw_vertical(pixel, mlx, '-', COLOR_GREEN);
 	}
 	else if (x_distance != 0)
 	{
 		if (x_distance > 0)
-			draw_right_side(start_x, start_y, end_x, end_y, mlx);
+			draw_right_side(pixel, mlx);
 		else if (x_distance < 0)
-			draw_left_side(start_x, start_y, end_x, end_y, mlx);
+			draw_left_side(pixel, mlx);
 	}
 }
 

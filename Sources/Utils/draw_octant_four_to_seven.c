@@ -6,81 +6,89 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:35:24 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 11:40:02 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:51:33 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/fdf.h"
 
-void	draw_octant_four(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx)
+void	draw_octant_four(int x_distance, int y_distance, t_point *pixel, \
+					t_window *mlx)
 {
 	int	e;
 
 	e = x_distance;
 	x_distance = e * 2;
 	y_distance *= 2;
-	while (--start_x != end_x)
+	while (--pixel->x_start != pixel->x_end)
 	{
-		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_4);
+		set_pixel_color(mlx->img, pixel->x_start, pixel->y_start, \
+				COLOR_OCTANT_4);
 		e = e - y_distance;
 		if (e >= 0)
 		{
-			start_y--;
+			pixel->y_start--;
 			e = e + x_distance;
 		}
 	}
 }
 
-void	draw_octant_five(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx)
+void	draw_octant_five(int x_distance, int y_distance, t_point *pixel, \
+					t_window *mlx)
 {
 	int	e;
 
 	e = y_distance;
 	y_distance = e * 2;
 	x_distance *= 2;
-	while (--start_y != end_y)
+	while (--pixel->y_start != pixel->y_end)
 	{
-		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_5);
+		set_pixel_color(mlx->img, pixel->x_start, pixel->y_start, \
+				COLOR_OCTANT_5);
 		e = e - x_distance;
 		if (e >= 0)
 		{
-			start_x--;
+			pixel->x_start--;
 			e = e + y_distance;
 		}
 	}
 }
 
-void	draw_octant_six(int x_distance, int y_distance, int start_x, int start_y, int end_y, t_window *mlx)
+void	draw_octant_six(int x_distance, int y_distance, t_point *pixel, \
+					t_window *mlx)
 {
 	int	e;
 
 	e = y_distance;
 	y_distance = e * 2;
-	while (--start_y != end_y)
+	while (--pixel->y_start != pixel->y_end)
 	{
-		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_6);
+		set_pixel_color(mlx->img, pixel->x_start, pixel->y_start, \
+				COLOR_OCTANT_6);
 		e = e + x_distance;
 		if (e > 0)
 		{
-			start_x++;
+			pixel->x_start++;
 			e = e + y_distance;
 		}
 	}
 }
 
-void	draw_octant_seven(int x_distance, int y_distance, int start_x, int start_y, int end_x, t_window *mlx)
+void	draw_octant_seven(int x_distance, int y_distance, t_point *pixel, \
+					t_window *mlx)
 {
 	int	e;
 
 	e = x_distance;
 	x_distance *= 2;
-	while (++start_x != end_x)
+	while (++pixel->x_start != pixel->x_end)
 	{
-		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_7);
+		set_pixel_color(mlx->img, pixel->x_start, pixel->y_start, \
+				COLOR_OCTANT_7);
 		e = e + y_distance;
 		if (e < 0)
 		{
-			start_y--;
+			pixel->y_start--;
 			e = e + x_distance;
 		}
 	}

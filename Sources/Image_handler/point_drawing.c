@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:26:58 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 11:36:18 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:55:06 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	draw_x_line(t_map_info *map, t_window *mlx, int *x, int *y)
 	if (check_coordonate_to_window(pixel, mlx) == FAIL)
 		refresh_image(x, y, &map->coef, mlx);
 	else
-		draw_one_line(pixel.x_start, pixel.y_start, pixel.x_end, pixel.y_end, mlx);
+		draw_one_line(&pixel, mlx);
 }
 
 void	draw_y_line(t_map_info *map, t_window *mlx, int *x, int *y)
@@ -70,7 +70,7 @@ void	draw_y_line(t_map_info *map, t_window *mlx, int *x, int *y)
 	if (check_coordonate_to_window(pixel, mlx) == FAIL)
 		refresh_image(x, y, &map->coef, mlx);
 	else
-		draw_one_line(pixel.x_start, pixel.y_start, pixel.x_end, pixel.y_end, mlx);
+		draw_one_line(&pixel, mlx);
 }
 
 void	draw_bottom_and_right_line(t_window *mlx, t_map_info *map)

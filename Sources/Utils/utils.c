@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:54:12 by almarico          #+#    #+#             */
-/*   Updated: 2024/06/19 14:38:31 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:44:08 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	file_checker(char *str)
 	i = ft_strlen(str);
 	if (i < 5)
 		return (FAIL);
-	if ((str[i - 4] == '.') && (str[i - 3] == 'f') && (str[i - 2] == 'd') && (str[i - 1] == 'f'))
+	if ((str[i - 4] == '.') && (str[i - 3] == 'f')
+		&& (str[i - 2] == 'd') && (str[i - 1] == 'f'))
 		return (SUCCESS);
 	else
 		return (FAIL);

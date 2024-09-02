@@ -22,7 +22,6 @@ SOURCES = ./Sources/main.c\
 		  ./Sources/Display/display.c\
 		  ./Sources/Event_handler/event_handler.c\
 		  ./Sources/Event_handler/key_handler.c\
-		  ./Sources/Event_handler/mouse_handler.c\
 		  ./Sources/Event_handler/window_handler.c\
 		  ./Sources/Image_handler/image_handler.c\
 		  ./Sources/Image_handler/color_writing.c\

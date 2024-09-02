@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:35:24 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/07 10:29:18 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:40:02 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	draw_octant_four(int x_distance, int y_distance, int start_x, int start_y, 
 	while (--start_x != end_x)
 	{
 		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_4);
-		if ((e = e - y_distance) >= 0)
+		e = e - y_distance;
+		if (e >= 0)
 		{
 			start_y--;
 			e = e + x_distance;
@@ -40,7 +41,8 @@ void	draw_octant_five(int x_distance, int y_distance, int start_x, int start_y, 
 	while (--start_y != end_y)
 	{
 		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_5);
-		if ((e = e - x_distance) >= 0)
+		e = e - x_distance;
+		if (e >= 0)
 		{
 			start_x--;
 			e = e + y_distance;
@@ -57,7 +59,8 @@ void	draw_octant_six(int x_distance, int y_distance, int start_x, int start_y, i
 	while (--start_y != end_y)
 	{
 		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_6);
-		if ((e = e + x_distance) > 0)
+		e = e + x_distance;
+		if (e > 0)
 		{
 			start_x++;
 			e = e + y_distance;
@@ -74,7 +77,8 @@ void	draw_octant_seven(int x_distance, int y_distance, int start_x, int start_y,
 	while (++start_x != end_x)
 	{
 		set_pixel_color(mlx->img, start_x, start_y, COLOR_OCTANT_7);
-		if ((e = e + y_distance)  < 0)
+		e = e + y_distance;
+		if (e < 0)
 		{
 			start_y--;
 			e = e + x_distance;

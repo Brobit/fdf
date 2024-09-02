@@ -6,33 +6,11 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:53:00 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/01 11:08:21 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:43:34 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/fdf.h"
-
-void	print_map(t_map_info *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < map->line_nb)
-	{
-		j = 0;
-		while (j < map->line_size)
-		{
-			if (map->map[i][j].value > 9)
-				printf("%d ", map->map[i][j].value);
-			else
-				printf("%d  ", map->map[i][j].value);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-}
 
 static void	skip_space(t_map_info *map)
 {
@@ -61,8 +39,7 @@ int	convert_map_to_int(t_map_info *map)
 			map->map[column_index][line_index] = (t_map){
 				.pos_x = column_index,
 				.pos_y = line_index,
-				.value = ft_atoi(*map->map_info),
-				.color = get_color_value(map)};
+				.value = ft_atoi(*map->map_info)};
 			skip_number(map);
 			skip_space(map);
 			line_index--;
@@ -70,37 +47,8 @@ int	convert_map_to_int(t_map_info *map)
 		column_index++;
 		map->map_info++;
 	}
-	print_map(map);
 	return (SUCCESS);
 }
-
-// int	convert_map_to_int(t_map_info *map)
-// {
-// 	int	column_index;
-// 	int	line_index;
-//
-// 	column_index = 0;
-// 	while (*map->map_info != NULL)
-// 	{
-// 		line_index = 0;
-// 		while (**map->map_info != '\0')
-// 		{
-// 			skip_space(map);
-// 			map->map[column_index][line_index] = (t_map){
-// 				.pos_x = column_index,
-// 				.pos_y = line_index,
-// 				.value = ft_atoi(*map->map_info),
-// 				.color = get_color_value(map)};
-// 			skip_number(map);
-// 			skip_space(map);
-// 			line_index++;
-// 		}
-// 		column_index++;
-// 		map->map_info++;
-// 	}
-// 	print_map(map);
-// 	return (SUCCESS);
-// }
 
 int	transform_to_int(t_map_info *map)
 {

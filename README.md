@@ -8,23 +8,23 @@ to do :
 - [x] reduce the coef by 2 on the y
 - [ ] check the render with a good fdf :
     - [x] 100-6.fdf
-    - [?] 10-2.fdf
+    - [x] 10-2.fdf
     - [x] 10-70.fdf
     - [x] 20-60.fdf
-    - [x] 42.fdf            a faire une rotation ,voir screenshot
+    - [x] 42.fdf
     - [x] 50-4.fdf
-    - [x] basictest.fdf     a faire une rotation, voir screenshot
-    - [x] elem2.fdf         a faire une rotation, voir screenshot
-    - [x] elem-col.fdf      a faire une rotation, voir screenshot
-    - [x] elem.fdf          a faire une rotatiom, voir screenshot
-    - [x] elem-fract.fdf    a faire une rotation, voir screenshot, et le milieu est pas rempli alors que le fdf_linux oui
-    - [x] julia.fdf         a faire une rotation, voir screenshot
-    - [x] mars.fdf          a faire une rotation, voir screenshot
-    - [?] pentenegpos.fdf   peut-etre juste une rotation a faire, voir screenshot
-    - [x] plat.fdf          a faire une rotation, voir screenshot
-    - [x] pnp_plat.fdf      a faire une rotation, voir screenshot
-    - [?] pylone.fdf        parait bon, a la rigueur faire une rotation, ne peut pas etre executer avec le programme de demo
-    - [?] pyra.fdf          a voir si en faisaint une rotation ca correspond
-    - [x] pyramide.fdf      a faire une rotation, voir screenshot
-    - [x] t1.fdf            a faire une rotation, voir screenshot
-    - [x] t2.fdf            a faire une rotation, voir screenshot
+    - [x] basictest.fdf
+    - [x] elem2.fdf
+    - [x] elem-col.fdf
+    - [x] elem.fdf
+    - [x] elem-fract.fdf    agrandir si possible, faire un define de coef selon le path, et le milieu est pas rempli alors que le fdf_linux oui
+    - [x] julia.fdf         agrandir si possible, faire un define pour le coef
+    - [x] mars.fdf          agrandir si possible, faire un define pour le coef
+    - [x] pentenegpos.fdf
+    - [x] plat.fdf
+    - [x] pnp_plat.fdf
+    - [x] pylone.fdf        parait bon, a voir ce que ca donne via d'autres fdf
+    - [x] pyra.fdf
+    - [x] pyramide.fdf      agrandir si possible
+    - [x] t1.fdf            agrandir si possible
+    - [x] t2.fdf            agrandir si possible

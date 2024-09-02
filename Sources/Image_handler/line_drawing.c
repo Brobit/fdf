@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:11:07 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/22 12:49:32 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 11:14:12 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ void	refresh_image(int *x, int *y, double *coef, t_window *mlx)
 	image_handler(mlx);
 	*x = -1;
 	*y = 0;
-	// *coef *= 0.95;
-	*coef /= 2;
-	printf("point coodonate out of map to draw line\n");
+	*coef *= 0.95;
 }
 
 int	check_coordonate_to_window(t_point pixel, t_window *mlx)

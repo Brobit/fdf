@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/08/20 11:51:02 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 10:22:23 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,29 @@
 # define ON_MOUSEMOVE				6
 # define ON_EXPOSE					12
 # define ON_DESTROY					17
+
+/* map define */
+# define ELEM_COL					"test_maps/elem-col.fdf"
+# define PLAT						"test_maps/plat.fdf"
+# define FORTY_TWO					"test_maps/42.fdf"
+# define TEN_TWO					"test_maps/10-2.fdf"
+# define TEN_SEVENTY				"test_maps/10-70.fdf"
+# define PENTENEGPOS				"test_maps/pentenegpos.fdf"
+# define BASICTEST					"test_maps/basictest.fdf"
+# define PYLONE						"test_maps/pylone.fdf"
+# define T1							"test_maps/t1.fdf"
+# define PNP_FLAT					"test_maps/pnp_flat.fdf"
+# define ELEM_FRACT					"test_maps/elem-fract.fdf"
+# define TWENTY_SIXTY				"test_maps/20-60.fdf"
+# define JULIA						"test_maps/julia.fdf"
+# define HUNDRED_SIX				"test_maps/100-6.fdf"
+# define PYRA						"test_maps/pyra.fdf"
+# define MARS						"test_maps/mars.fdf"
+# define T2							"test_maps/t2.fdf"
+# define ELEM2						"test_maps/elem2.fdf"
+# define ELEM						"test_maps/elem.fdf"
+# define FIFTY_FOUR					"test_maps/50-4.fdf"
+# define PYRAMIDE					"test_maps/pyramide.fdf"
 
 /* color define */
 # define COLOR						0x000000
@@ -98,15 +121,16 @@ typedef struct s_map
 	int				pos_x;
 	int				pos_y;
 	int				value;
-	int				color;
 }				t_map;
 
 typedef struct s_map_info
 {
 	char			**map_info;
 	t_map			**map;
+	char		*name;
 	int				line_nb;
 	int				line_size;
+	double			coef;
 }				t_map_info;
 
 typedef struct s_inner_interval

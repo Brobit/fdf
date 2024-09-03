@@ -6,11 +6,25 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:54:12 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 11:44:08 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:08:02 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/fdf.h"
+
+void	free_map(t_map_info *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->line_nb)
+	{
+		printf("%d\n", i);
+		free(map->map_info[i]);
+		free(map->map[i]);
+		i++;
+	}
+}
 
 int	file_checker(char *str)
 {
@@ -25,26 +39,6 @@ int	file_checker(char *str)
 	else
 		return (FAIL);
 	return (SUCCESS);
-}
-
-void	free_map_info(t_map_info *map)
-{
-	int	index;
-
-	index = -1;
-	while (++index < map->line_nb -1)
-		free(map->map_info[index]);
-	free(map->map_info);
-}
-
-void	free_map(t_map_info *map)
-{
-	int	index;
-
-	index = -1;
-	while (++index < map->line_nb -1)
-		free(map->map[index]);
-	free(map->map);
 }
 
 void	write_message(const char *msg)

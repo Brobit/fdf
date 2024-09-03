@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:26:58 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 11:55:06 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:57:50 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	draw_point(t_window *mlx, t_map_info *map)
 	int					y;
 
 	y = 0;
-	printf("coef : %f\n", map->coef);
 	while (y < map->line_nb - 1)
 	{
 		x = 0;
@@ -114,6 +113,5 @@ void	draw_point(t_window *mlx, t_map_info *map)
 		}
 		y++;
 	}
-	printf("coef : %f\n", map->coef);
 	draw_bottom_and_right_line(mlx, map);
 }

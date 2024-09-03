@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 09:45:42 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 11:11:33 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/03 09:35:16 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	display(t_window *mlx, t_map_info *map)
 	image_handler(mlx);
 	fill_image_with_pixel(mlx, map);
 	mlx_put_image_to_window(mlx->init_ptr, mlx->window, mlx->img.img_ptr, 0, 0);
-	event_handler(mlx);
+	event_handler(mlx, map);
 	mlx_loop(mlx->init_ptr);
 	return (SUCCESS);
 }

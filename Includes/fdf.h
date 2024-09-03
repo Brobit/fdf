@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 13:50:16 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:32:37 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,22 +136,6 @@ typedef struct s_map_info
 	double			coef;
 }				t_map_info;
 
-typedef struct s_inner_interval
-{
-	int				min_horizontal;
-	int				max_horizontal;
-	int				min_vertical;
-	int				max_vertical;
-	int				horizontal_interval;
-	int				vertical_interval;
-	int				step_horizontal;
-	int				step_vertical;
-	int				offset_horizontal;
-	int				offset_vertical;
-	int				beggining_horizontal;
-	int				beggining_vertical;
-}				t_inner_interval;
-
 typedef struct s_point
 {
 	int				x_start;
@@ -162,6 +146,22 @@ typedef struct s_point
 	int				z_end;
 }				t_point;
 
+typedef struct s_pointer
+{
+	t_window			*mlx;
+	t_map_info			*map;
+}				t_pointer;
+
+typedef struct s_convert_map_tools
+{
+	int				column_index;
+	int				line_index;
+	int				i;
+	char			*tmp;
+}				t_convert_map_tools;
+
+void				free_map(t_map_info *map);
+
 /* init display */
 int					init_display(t_window *mlx);
 
@@ -169,9 +169,9 @@ int					init_display(t_window *mlx);
 int					display(t_window *mlx, t_map_info *map);
 
 /* event handling */
-void				event_handler(t_window *mlx);
-int					key_handler(int keycode, t_window *mlx);
-int					closes(t_window *mlx);
+void				event_handler(t_window *mlx, t_map_info *map);
+int					key_handler(int keycode, t_pointer *pointer);
+int					closes(t_pointer *pointer);
 
 /* image handling */
 void				image_handler(t_window *mlx);
@@ -186,8 +186,6 @@ int					transform_to_int(t_map_info *map);
 
 /* utils */
 void				write_message(const char *msg);
-void				free_map_info(t_map_info *map);
-void				free_map(t_map_info *map);
 int					get_color_value(t_map_info *map);
 int					file_checker(char *str);
 int					check_coordonate_to_window(t_point pixel, t_window *mlx);
@@ -199,7 +197,6 @@ void				draw_point(t_window *mlx, t_map_info *map);
 void				draw_line(t_window *mlx, t_map_info *map);
 void				fill_border_of_image(t_window *mlx);
 void				refresh_image(int *x, int *y, double *coef, t_window *mlx);
-t_inner_interval	set_interval_to_fill(t_window *mlx, t_map_info *map);
 
 /* line utils */
 void				draw_one_line(t_point *pixel, t_window *mlx);

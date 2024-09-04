@@ -1,1 +1,30 @@
-finish !!! :)
+to do :
+
+- [x] do a function to calculate the isometric projection
+- [x] apply the isometric calcul to the point coordonate
+- [x] draw lines between points
+- [x] segfault on elem-fract.fdf
+- [x] print the bottom line and the right line
+- [x] reduce the coef by 2 on the y
+- [x] check the leak with all the map :
+    - [x] 100-6.fdf
+    - [x] 10-2.fdf
+    - [x] 10-70.fdf
+    - [x] 20-60.fdf
+    - [x] 42.fdf
+    - [x] 50-4.fdf
+    - [x] basictest.fdf
+    - [x] elem2.fdf
+    - [x] elem-col.fdf
+    - [x] elem.fdf
+    - [x] elem-fract.fdf
+    - [x] julia.fdf
+    - [x] mars.fdf
+    - [x] pentenegpos.fdf
+    - [x] plat.fdf
+    - [x] pnp_plat.fdf
+    - [x] pylone.fdf
+    - [x] pyra.fdf
+    - [x] pyramide.fdf
+    - [x] t1.fdf
+    - [x] t2.fdf

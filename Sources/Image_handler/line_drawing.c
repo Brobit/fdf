@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:11:07 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 12:09:38 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:43:40 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	refresh_image(int *x, int *y, double *coef, t_window *mlx)
 	image_handler(mlx);
 	*x = -1;
 	*y = 0;
-	*coef *= 0.95;
+	*coef /= 2;
 }
 
 int	check_coordonate_to_window(t_point pixel, t_window *mlx)

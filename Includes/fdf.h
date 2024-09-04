@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:35:18 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/03 16:32:37 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:52:08 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,7 @@ typedef struct s_convert_map_tools
 	char			*tmp;
 }				t_convert_map_tools;
 
+/* free function */
 void				free_map(t_map_info *map);
 
 /* init display */
@@ -194,7 +195,6 @@ int					check_coordonate_to_window(t_point pixel, t_window *mlx);
 void				set_pixel_color(t_img_info img, int pos_x, int pos_y, \
 					int color);
 void				draw_point(t_window *mlx, t_map_info *map);
-void				draw_line(t_window *mlx, t_map_info *map);
 void				fill_border_of_image(t_window *mlx);
 void				refresh_image(int *x, int *y, double *coef, t_window *mlx);
 

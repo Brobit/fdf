@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:26:58 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 13:57:50 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:20:29 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	calculate_isometric_projection(t_point *pixel, double coef,
 	pixel->y_end = y_isometric_pos;
 }
 
-void	draw_x_line(t_map_info *map, t_window *mlx, int *x, int *y)
+int	draw_x_line(t_map_info *map, t_window *mlx, int *x, int *y)
 {
 	t_point				pixel;
 
@@ -50,12 +50,14 @@ void	draw_x_line(t_map_info *map, t_window *mlx, int *x, int *y)
 		.z_end = map->map[*y][*x + 1].value};
 	calculate_isometric_projection(&pixel, map->coef, mlx);
 	if (check_coordonate_to_window(pixel, mlx) == FAIL)
-		refresh_image(x, y, &map->coef, mlx);
+		return (FAIL);
+		// refresh_image(x, y, &map->coef, mlx);
 	else
 		draw_one_line(&pixel, mlx);
+	return (SUCCESS);
 }
 
-void	draw_y_line(t_map_info *map, t_window *mlx, int *x, int *y)
+int	draw_y_line(t_map_info *map, t_window *mlx, int *x, int *y)
 {
 	t_point				pixel;
 
@@ -68,12 +70,14 @@ void	draw_y_line(t_map_info *map, t_window *mlx, int *x, int *y)
 		.z_end = map->map[*y + 1][*x].value};
 	calculate_isometric_projection(&pixel, map->coef, mlx);
 	if (check_coordonate_to_window(pixel, mlx) == FAIL)
-		refresh_image(x, y, &map->coef, mlx);
+		return (FAIL);
+		// refresh_image(x, y, &map->coef, mlx);
 	else
 		draw_one_line(&pixel, mlx);
+	return (SUCCESS);
 }
 
-void	draw_bottom_and_right_line(t_window *mlx, t_map_info *map)
+int	draw_bottom_and_right_line(t_window *mlx, t_map_info *map)
 {
 	int					x;
 	int					y;
@@ -82,16 +86,19 @@ void	draw_bottom_and_right_line(t_window *mlx, t_map_info *map)
 	x = 0;
 	while (x < map->line_size - 1 && (x + 1) <= map->line_size - 1)
 	{
-		draw_x_line(map, mlx, &x, &y);
+		if (draw_x_line(map, mlx, &x, &y) == FAIL)
+			return (FAIL);
 		x++;
 	}
 	x = map->line_size - 1;
 	y = 0;
 	while (y < map->line_nb - 1 && (y + 1) <= map->line_nb - 1)
 	{
-		draw_y_line(map, mlx, &x, &y);
+		if (draw_y_line(map, mlx, &x, &y) == FAIL)
+			return (FAIL);
 		y++;
 	}
+	return (SUCCESS);
 }
 
 void	draw_point(t_window *mlx, t_map_info *map)
@@ -106,12 +113,15 @@ void	draw_point(t_window *mlx, t_map_info *map)
 		while (x < map->line_size - 1)
 		{
 			if (x + 1 <= map->line_size - 1)
-				draw_x_line(map, mlx, &x, &y);
-			if (y + 1 <= map->line_nb - 1)
-				draw_y_line(map, mlx, &x, &y);
+				if (draw_x_line(map, mlx, &x, &y) == FAIL)
+					refresh_image(&x, &y, &map->coef, mlx);
+			if (y + 1 <= map->line_nb - 1 && x >= 0)
+				if (draw_y_line(map, mlx, &x, &y) == FAIL)
+					refresh_image(&x, &y, &map->coef, mlx);
 			x++;
 		}
 		y++;
 	}
-	draw_bottom_and_right_line(mlx, map);
+	if (draw_bottom_and_right_line(mlx, map) == FAIL)
+		refresh_image(&x, &y, &map->coef, mlx);
 }

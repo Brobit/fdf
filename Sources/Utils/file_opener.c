@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:01:16 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/03 11:32:41 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:07:02 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	determinate_coef_part_two(t_map_info *map)
 		|| ft_strcmp(T2, map->name) == 0)
 		map->coef = 5;
 	else if (ft_strcmp(T1, map->name) == 0 || ft_strcmp(MARS, map->name) == 0)
-		map->coef = 3;
+		map->coef = 2.5;
 	else if (ft_strcmp(ELEM_FRACT, map->name) == 0
 		|| ft_strcmp(JULIA, map->name) == 0)
 		map->coef = 1.1;
@@ -68,7 +68,7 @@ void	determinate_coef(t_map_info *map)
 		|| ft_strcmp(PYRA, map->name) == 0
 		|| ft_strcmp(TWENTY_SIXTY, map->name) == 0
 		|| ft_strcmp(PYRAMIDE, map->name) == 0)
-		map->coef = 15;
+		map->coef = 14;
 	else
 		determinate_coef_part_two(map);
 }

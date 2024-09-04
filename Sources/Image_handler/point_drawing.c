@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:26:58 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/04 16:20:29 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:54:34 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	draw_x_line(t_map_info *map, t_window *mlx, int *x, int *y)
 	calculate_isometric_projection(&pixel, map->coef, mlx);
 	if (check_coordonate_to_window(pixel, mlx) == FAIL)
 		return (FAIL);
-		// refresh_image(x, y, &map->coef, mlx);
 	else
 		draw_one_line(&pixel, mlx);
 	return (SUCCESS);
@@ -71,7 +70,6 @@ int	draw_y_line(t_map_info *map, t_window *mlx, int *x, int *y)
 	calculate_isometric_projection(&pixel, map->coef, mlx);
 	if (check_coordonate_to_window(pixel, mlx) == FAIL)
 		return (FAIL);
-		// refresh_image(x, y, &map->coef, mlx);
 	else
 		draw_one_line(&pixel, mlx);
 	return (SUCCESS);

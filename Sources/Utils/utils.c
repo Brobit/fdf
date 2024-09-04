@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:54:12 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/03 16:08:02 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:09:06 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ void	free_map(t_map_info *map)
 	int	i;
 
 	i = 0;
-	while (i < map->line_nb)
+	while (i <= map->line_nb)
 	{
-		printf("%d\n", i);
 		free(map->map_info[i]);
 		free(map->map[i]);
 		i++;
 	}
+	free(map->map_info);
+	free(map->map);
 }
 
 int	file_checker(char *str)

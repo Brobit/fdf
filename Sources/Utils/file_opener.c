@@ -82,7 +82,7 @@ int	file_opener(const char *file, t_map_info *map)
 		return (FAIL);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (FAIL);
+		return (close(fd), FAIL);
 	map->map_info = malloc((map->line_nb + 1) * sizeof(char *));
 	if (!map->map_info)
 		return (FAIL);

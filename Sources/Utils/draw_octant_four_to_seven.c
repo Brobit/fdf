@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:35:24 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/02 13:51:33 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/06 13:46:28 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	draw_octant_six(int x_distance, int y_distance, t_point *pixel, \
 
 	e = y_distance;
 	y_distance = e * 2;
+	x_distance *= 2;
 	while (--pixel->y_start != pixel->y_end)
 	{
 		set_pixel_color(mlx->img, pixel->x_start, pixel->y_start, \
@@ -81,6 +82,7 @@ void	draw_octant_seven(int x_distance, int y_distance, t_point *pixel, \
 
 	e = x_distance;
 	x_distance *= 2;
+	y_distance *= 2;
 	while (++pixel->x_start != pixel->x_end)
 	{
 		set_pixel_color(mlx->img, pixel->x_start, pixel->y_start, \

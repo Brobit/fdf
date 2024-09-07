@@ -6,7 +6,7 @@
 /*   By: almarico <almarico@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:01:16 by almarico          #+#    #+#             */
-/*   Updated: 2024/09/04 16:07:02 by almarico         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:43:26 by almarico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	count_line_in_file(const char *file, t_map_info *map)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (close(fd), FAIL);
+		return (FAIL);
 	map->line_nb = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -82,7 +82,7 @@ int	file_opener(const char *file, t_map_info *map)
 		return (FAIL);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (close(fd), FAIL);
+		return (FAIL);
 	map->map_info = malloc((map->line_nb + 1) * sizeof(char *));
 	if (!map->map_info)
 		return (FAIL);
